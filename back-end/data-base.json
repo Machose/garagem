@@ -1,0 +1,121 @@
+{
+  "carros": [
+    {
+      "id": 1,
+      "nome": "Carro 01",
+      "marca_id": 1,
+      "cor": "branco"
+    },
+    {
+      "nome": "Carro 01",
+      "marca_id": 1,
+      "id": 2
+    },
+    {
+      "nome": "Carro 01",
+      "marca_id": 1,
+      "id": 3
+    },
+    {
+      "nome": "Carro 01",
+      "marca_id": 1,
+      "id": 4
+    },
+    {
+      "nome": "Carro 01",
+      "marca_id": 1,
+      "id": 5
+    }
+  ],
+  "marcas": [
+    {
+      "id": 1,
+      "nome": "Volkswagen"
+    },
+    {
+      "id": 2,
+      "nome": "Toyota"
+    },
+    {
+      "id": 3,
+      "nome": "Ford"
+    },
+    {
+      "id": 4,
+      "nome": "Hyundai"
+    },
+    {
+      "id": 5,
+      "nome": "Honda"
+    },
+    {
+      "id": 6,
+      "nome": "Chevrolet"
+    },
+    {
+      "id": 7,
+      "nome": "Fiat"
+    },
+    {
+      "id": 8,
+      "nome": "FERRARI"
+    },
+    {
+      "id": 9,
+      "nome": "Renault "
+    }
+  ],
+
+  "modelo": [
+    {
+      "id": 1,
+      "nome": "Onix",
+      "marca_id": 6
+    },
+    {
+      "id": 2,
+      "nome": "Ka",
+      "marca_id": 3
+    },
+    {
+      "id": 3,
+      "nome": "HB20",
+      "marca_id": 4
+    },
+    {
+      "id": 4,
+      "nome": "Kwid",
+      "marca_id": 9
+    },
+    {
+      "id": 5,
+      "nome": "Gol",
+      "marca_id": 1
+    },
+    {
+      "id": 6,
+      "nome": "Argo",
+      "marca_id": 7
+    },
+    {
+      "id": 7,
+      "nome": "Joy Plus",
+      "marca_id": 6
+    },
+    {
+      "id": 8,
+      "nome": "Mobi",
+      "marca_id": 7
+    },
+    {
+      "id": 9,
+      "nome": "Ka Sedan",
+      "marca_id": 3
+    },
+    {
+      "id": 10,
+      "nome": "Sandero",
+      "marca_id": 9
+    }
+  ]
+}
