@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 
-import CarForm from '../CarForm';
-import Card from '../../../components/Card';
+import Card from '../../../components/Card/styles';
 import Table from '../../../components/Table';
 
 import api from '../../../services/api';
+
+import { Link } from 'react-router-dom';
+import RegisterButton from '../../../components/Buttons/Register/styles';
+
+import { FaPlus } from 'react-icons/fa';
 
 export default class CarList extends Component {
   state = {
@@ -33,12 +37,18 @@ export default class CarList extends Component {
 
   render() {
     return (
-      <Card
-        title="Lista de Carros"
-        component={Table}
-        headings={this.state.headings}
-        rows={this.state.rows}
-      />
+      <Card>
+        <h1>Lista de Carros</h1>
+        <hr />
+        <Link to="/carro/novo">
+          <RegisterButton>
+            {' '}
+            <FaPlus />
+            Cadastrar
+          </RegisterButton>
+        </Link>
+        <Table headings={this.state.headings} rows={this.state.rows} />
+      </Card>
     );
   }
 }

@@ -3,32 +3,17 @@ import { Switch, Route } from 'react-router-dom';
 
 import CarList from './pages/Car/CarList';
 import CarForm from './pages/Car/CarForm';
-import Card from './components/Card';
-
-const AppRoute = ({ component: Component, card: Card, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) => <Card title="teste" component={Component} />}
-  />
-);
+import NotFound from './pages/NotFound';
 
 export default function Routes() {
   return (
     <Switch>
-      <Route path="/carros" exact component={CarList} />
-      <AppRoute path="/carro/novo" exact card={Card} component={CarForm} />
-      <AppRoute
-        path="/carro/visualizar/:id"
-        exact
-        card={Card}
-        component={CarForm}
-      />
-      <AppRoute
-        path="/carro/alterar/:id"
-        exact
-        card={Card}
-        component={CarForm}
-      />
+      <Route path="/" exact component={CarList} />
+      <Route path="/carros" component={CarList} />
+      <Route path="/carro/novo" component={CarForm} />
+      <Route path="/carro/visualizar/:id" component={CarForm} />
+      <Route path="/carro/alterar/:id" component={CarForm} />
+      <Route path="/" exact component={NotFound} />
     </Switch>
   );
 }
