@@ -2,29 +2,59 @@
   "carros": [
     {
       "id": 1,
-      "nome": "Carro 01",
-      "marca_id": 1,
-      "cor": "branco"
+      "placa": "ASD1478",
+
+      "cor": "Branco",
+      "ano": 2009,
+      "modeloId": 7
     },
     {
-      "nome": "Carro 01",
-      "marca_id": 1,
-      "id": 2
+      "id": 2,
+      "placa": "BDQ4795",
+
+      "cor": "Branco",
+      "ano": 2012,
+      "modeloId": 3
     },
     {
-      "nome": "Carro 01",
-      "marca_id": 1,
-      "id": 3
+      "id": 3,
+      "placa": "QQQ4569",
+
+      "cor": "Branco",
+      "ano": 2006,
+      "modeloId": 1
     },
     {
-      "nome": "Carro 01",
-      "marca_id": 1,
-      "id": 4
+      "id": 4,
+      "placa": "CVB1456",
+
+      "cor": "Branco",
+      "ano": 2018,
+      "modeloId": 5
     },
     {
-      "nome": "Carro 01",
-      "marca_id": 1,
-      "id": 5
+      "id": 5,
+      "placa": "QMO3333",
+
+      "cor": "Branco",
+      "ano": 2016,
+      "modeloId": 10
+    },
+    {
+      "id": 6,
+      "placa": "QTM1478",
+
+      "cor": "Branco",
+      "ano": 2014,
+      "modeloId": 8
+    },
+    {
+      "id": 7,
+      "placa": "MNJ1346",
+
+      "cor": "Branco",
+      "ano": 2009,
+      "modeloId": 3
     }
   ],
   "marcas": [
@@ -66,7 +96,7 @@
     }
   ],
 
-  "modelo": [
+  "modelos": [
     {
       "id": 1,
       "nome": "Onix",
