@@ -1,22 +1,57 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+
+// Bibliotecas instaladas
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Form } from '@unform/web';
 
-import Input from '../../../components/Unform/Cadastro/Input';
-import Card from '../../../components/Card/styles';
-
-import { Link } from 'react-router-dom';
-
+// Servico de back end
 import api from '../../../services/api';
 
+//Componentes
+import Input from '../../../components/Unform/Cadastro/Input';
+import Select from '../../../components/Unform/Cadastro/Select';
+
+import Card from '../../../components/Card/styles';
+import { FormFooter } from './styled';
 import {
   ButtonSave,
   ButtonCancel,
 } from '../../../components/Buttons/ButtonsForm/styled';
-import { FormFooter } from './styled';
 
 export default function CarForm() {
+  let history = useHistory();
+
   const formRef = useRef(null);
 
+  const [carModels, setCarModels] = useState([]);
+  const [colors, setColors] = useState([]);
+
+  //Após a renderização ele executa algo
+  useEffect(() => {
+    async function findCarModels() {
+      const response = await api.get('/models?_expand=brand');
+      const carModelsArray = response.data.map((carModel) => ({
+        value: carModel.id,
+        label: carModel.name,
+      }));
+      setCarModels(carModelsArray);
+    }
+
+    async function findColors() {
+      const response = await api.get('/colors');
+      const colorsArray = response.data.map((color) => ({
+        value: color.id,
+        label: color.name,
+      }));
+      setColors(colorsArray);
+    }
+
+    findCarModels();
+    findColors();
+  }, []); //useEffect com o [] como segundo parametro faz com que algo aconteca apenas uma unica vez
+
+  //Lidar com o submit do formulario
   function handleSubmit(data, { reset }) {
     saveCar(data);
     reset();
@@ -24,9 +59,11 @@ export default function CarForm() {
 
   function saveCar(car) {
     api
-      .post('/carros', car)
+      .post('/cars', car)
       .then(function (response) {
         console.log('Salvou: ', response);
+
+        history.push('/carros');
       })
       .catch(function (error) {
         console.log('Ocorreu um erro');
@@ -38,8 +75,8 @@ export default function CarForm() {
       <Form ref={formRef} onSubmit={handleSubmit}>
         <Input
           type="number"
-          id="ano"
-          name="ano"
+          id="year"
+          name="year"
           label="Ano"
           placeholder="Ex.: 2012"
           required
@@ -47,29 +84,27 @@ export default function CarForm() {
 
         <Input
           type="text"
-          id="placa"
-          name="placa"
+          id="board"
+          name="board"
           label="Placa"
           placeholder="Ex.: ASQ-2469"
           required
         />
 
-        <Input
-          type="text"
-          id="modeloId"
-          name="modeloId"
+        <Select
+          id="modelId"
+          name="modelId"
           label="Modelo"
-          placeholder="Ex.: Onix"
-          required
+          placeholder="Selecione uma opção"
+          options={carModels}
         />
 
-        <Input
-          type="text"
-          id="cor"
-          name="cor"
+        <Select
+          id="colorId"
+          name="colorId"
           label="Cor"
-          placeholder="Ex.: Branco"
-          required
+          placeholder="Selecione uma opção"
+          options={colors}
         />
 
         <FormFooter>

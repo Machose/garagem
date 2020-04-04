@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+// import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
 import {
   TableContainer,
@@ -7,7 +7,6 @@ import {
   TableContent,
   Amount,
   Search,
-  PageCount,
 } from './styles';
 
 export default function Table({ headings = [], rows = [] }) {

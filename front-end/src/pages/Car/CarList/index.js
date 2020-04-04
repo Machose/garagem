@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 
-import Card from '../../../components/Card/styles';
-import Table from '../../../components/Table';
+// Bibliotecas instaladas
+import { Link } from 'react-router-dom';
+import { FaPlus } from 'react-icons/fa';
 
+// Servico de back end
 import api from '../../../services/api';
 
-import { Link } from 'react-router-dom';
+//Componentes
+import Card from '../../../components/Card/styles';
+import Table from '../../../components/Table';
 import RegisterButton from '../../../components/Buttons/Register/styles';
-
-import { FaPlus } from 'react-icons/fa';
 
 export default class CarList extends Component {
   state = {
@@ -18,18 +20,16 @@ export default class CarList extends Component {
   };
 
   async componentDidMount() {
-    const response = await api.get('/carros?_expand=modelo');
+    const response = await api.get('/cars?_expand=color&_expand=model');
     const { data } = response;
-
-    console.log(data);
 
     const headings = ['Ano', 'Placa', 'Modelo', 'Cor'];
 
     const rows = data.map((car) => [
-      car.ano,
-      car.placa,
-      car.modelo.nome,
-      car.cor,
+      car.year,
+      car.board,
+      car.model.name,
+      car.color.name,
     ]);
 
     this.setState({ cars: data, headings, rows });
@@ -42,7 +42,6 @@ export default class CarList extends Component {
         <hr />
         <Link to="/carro/novo">
           <RegisterButton>
-            {' '}
             <FaPlus />
             Cadastrar
           </RegisterButton>
