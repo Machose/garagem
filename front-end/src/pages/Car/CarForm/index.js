@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 
 // Bibliotecas instaladas
 import { Link } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Form } from '@unform/web';
 
 // Servico de back end
@@ -19,16 +19,20 @@ import {
   ButtonCancel,
 } from '../../../components/Buttons/ButtonsForm/styled';
 
-export default function CarForm() {
+function CarForm() {
   let history = useHistory();
+  let { id } = useParams();
 
   const formRef = useRef(null);
 
   const [carModels, setCarModels] = useState([]);
   const [colors, setColors] = useState([]);
+  const [car, setCar] = useState(null);
 
   //Após a renderização ele executa algo
   useEffect(() => {
+    //Busca os modelos cadastrados
+
     async function findCarModels() {
       const response = await api.get('/models?_expand=brand');
       const carModelsArray = response.data.map((carModel) => ({
@@ -37,6 +41,9 @@ export default function CarForm() {
       }));
       setCarModels(carModelsArray);
     }
+    findCarModels();
+
+    //Busca as cores cadastradas
 
     async function findColors() {
       const response = await api.get('/colors');
@@ -46,9 +53,36 @@ export default function CarForm() {
       }));
       setColors(colorsArray);
     }
-
-    findCarModels();
     findColors();
+
+    //Caso seja uma alteração ou visualização busca os dados do carro
+    if (id !== undefined && car === null) {
+      async function findCarById() {
+        const response = await api.get(
+          `/cars/${id}?_expand=color&_expand=model`
+        );
+
+        const carForm = {
+          year: response.data.year,
+          board: response.data.board,
+          model: {
+            value: response.data.model.id,
+            label: response.data.model.name,
+          },
+          color: {
+            value: response.data.color.id,
+            label: response.data.color.name,
+          },
+        };
+
+        await formRef.current.setData(carForm);
+        await formRef.current.setFieldValue('modelId', carForm.model);
+        await formRef.current.setFieldValue('colorId', carForm.color);
+
+        setCar(carForm);
+      }
+      findCarById();
+    }
   }, []); //useEffect com o [] como segundo parametro faz com que algo aconteca apenas uma unica vez
 
   //Lidar com o submit do formulario
@@ -57,17 +91,32 @@ export default function CarForm() {
     reset();
   }
 
+  //Salva os dados
   function saveCar(car) {
-    api
-      .post('/cars', car)
-      .then(function (response) {
-        console.log('Salvou: ', response);
+    //Verifica se esta alterando ou cadastrando
+    if (id === undefined) {
+      api
+        .post('/cars', car)
+        .then(function (response) {
+          console.log('Salvou: ', response);
 
-        history.push('/carros');
-      })
-      .catch(function (error) {
-        console.log('Ocorreu um erro');
-      });
+          history.push('/carros');
+        })
+        .catch(function (error) {
+          console.log('Ocorreu um erro', error);
+        });
+    } else {
+      api
+        .put(`/cars/${id}`, car)
+        .then(function (response) {
+          console.log('Salvou: ', response);
+
+          history.push('/carros');
+        })
+        .catch(function (error) {
+          console.log('Ocorreu um erro', error);
+        });
+    }
   }
 
   return (
@@ -79,7 +128,6 @@ export default function CarForm() {
           name="year"
           label="Ano"
           placeholder="Ex.: 2012"
-          required
         />
 
         <Input
@@ -88,7 +136,6 @@ export default function CarForm() {
           name="board"
           label="Placa"
           placeholder="Ex.: ASQ-2469"
-          required
         />
 
         <Select
@@ -118,3 +165,5 @@ export default function CarForm() {
     </Card>
   );
 }
+
+export default CarForm;

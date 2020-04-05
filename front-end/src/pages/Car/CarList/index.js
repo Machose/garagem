@@ -27,9 +27,9 @@ export default class CarList extends Component {
 
     const rows = data.map((car) => [
       car.year,
-      car.board,
-      car.model.name,
-      car.color.name,
+      <Link to={`carro/alterar/${car.id}`}>{car.board}</Link>,
+      car.model?.name,
+      car.color?.name,
     ]);
 
     this.setState({ cars: data, headings, rows });

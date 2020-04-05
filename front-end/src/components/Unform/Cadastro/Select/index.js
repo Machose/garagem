@@ -6,7 +6,7 @@ import { SelectBlock } from './styles';
 
 const Select = ({ name, options, label, ...rest }) => {
   const selectRef = useRef(null);
-  const { fieldName, defaultValue, registerField } = useField(name);
+  const { fieldName, registerField } = useField(name);
 
   useEffect(() => {
     registerField({
@@ -33,13 +33,10 @@ const Select = ({ name, options, label, ...rest }) => {
     <SelectBlock>
       <label htmlFor={rest.id}>{label}</label>
       <ReactSelect
-        defaultValue={
-          defaultValue &&
-          options.find((option) => option.value === defaultValue)
-        }
         ref={selectRef}
         classNamePrefix="react-select"
         options={options}
+        ref={selectRef}
         {...rest}
       />
     </SelectBlock>

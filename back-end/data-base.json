@@ -1,151 +1,184 @@
 {
-  "carros": [
+  "cars": [
     {
-      "id": 1,
-      "placa": "ASD1478",
-
-      "cor": "Branco",
-      "ano": 2009,
-      "modeloId": 7
+      "year": "2009",
+      "board": "ASD1478",
+      "modelId": 2,
+      "colorId": 1,
+      "id": 1
     },
     {
       "id": 2,
-      "placa": "BDQ4795",
-
-      "cor": "Branco",
-      "ano": 2012,
-      "modeloId": 3
+      "board": "BDQ4795",
+      "colorId": 1,
+      "year": 2012,
+      "modelId": 3
     },
     {
       "id": 3,
-      "placa": "QQQ4569",
-
-      "cor": "Branco",
-      "ano": 2006,
-      "modeloId": 1
+      "board": "QQQ4569",
+      "colorId": 1,
+      "year": 2006,
+      "modelId": 1
     },
     {
       "id": 4,
-      "placa": "CVB1456",
-
-      "cor": "Branco",
-      "ano": 2018,
-      "modeloId": 5
+      "board": "CVB1456",
+      "colorId": 1,
+      "year": 2018,
+      "modelId": 5
     },
     {
       "id": 5,
-      "placa": "QMO3333",
-
-      "cor": "Branco",
-      "ano": 2016,
-      "modeloId": 10
+      "board": "QMO3333",
+      "colorId": 1,
+      "year": 2016,
+      "modelId": 10
     },
     {
       "id": 6,
-      "placa": "QTM1478",
-
-      "cor": "Branco",
-      "ano": 2014,
-      "modeloId": 8
+      "board": "QTM1478",
+      "colorId": 1,
+      "year": 2014,
+      "modelId": 8
     },
     {
       "id": 7,
-      "placa": "MNJ1346",
-
-      "cor": "Branco",
-      "ano": 2009,
-      "modeloId": 3
+      "board": "MNJ1346",
+      "colorId": 1,
+      "year": 2009,
+      "modelId": 3
+    },
+    {
+      "year": "2000",
+      "board": "QQQ1425",
+      "modelId": 10,
+      "colorId": 3,
+      "id": 8
     }
   ],
-  "marcas": [
+  "brands": [
     {
       "id": 1,
-      "nome": "Volkswagen"
+      "name": "Volkswagen"
     },
     {
       "id": 2,
-      "nome": "Toyota"
+      "name": "Toyota"
     },
     {
       "id": 3,
-      "nome": "Ford"
+      "name": "Ford"
     },
     {
       "id": 4,
-      "nome": "Hyundai"
+      "name": "Hyundai"
     },
     {
       "id": 5,
-      "nome": "Honda"
+      "name": "Honda"
     },
     {
       "id": 6,
-      "nome": "Chevrolet"
+      "name": "Chevrolet"
     },
     {
       "id": 7,
-      "nome": "Fiat"
+      "name": "Fiat"
     },
     {
       "id": 8,
-      "nome": "FERRARI"
+      "name": "FERRARI"
     },
     {
       "id": 9,
-      "nome": "Renault "
+      "name": "Renault "
     }
   ],
-
-  "modelos": [
+  "models": [
     {
       "id": 1,
-      "nome": "Onix",
-      "marca_id": 6
+      "name": "Onix",
+      "brandId": 6
     },
     {
       "id": 2,
-      "nome": "Ka",
-      "marca_id": 3
+      "name": "Ka",
+      "brandId": 3
     },
     {
       "id": 3,
-      "nome": "HB20",
-      "marca_id": 4
+      "name": "HB20",
+      "brandId": 4
     },
     {
       "id": 4,
-      "nome": "Kwid",
-      "marca_id": 9
+      "name": "Kwid",
+      "brandId": 9
     },
     {
       "id": 5,
-      "nome": "Gol",
-      "marca_id": 1
+      "name": "Gol",
+      "brandId": 1
     },
     {
       "id": 6,
-      "nome": "Argo",
-      "marca_id": 7
+      "name": "Argo",
+      "brandId": 7
     },
     {
       "id": 7,
-      "nome": "Joy Plus",
-      "marca_id": 6
+      "name": "Joy Plus",
+      "brandId": 6
     },
     {
       "id": 8,
-      "nome": "Mobi",
-      "marca_id": 7
+      "name": "Mobi",
+      "brandId": 7
     },
     {
       "id": 9,
-      "nome": "Ka Sedan",
-      "marca_id": 3
+      "name": "Ka Sedan",
+      "brandId": 3
     },
     {
       "id": 10,
-      "nome": "Sandero",
-      "marca_id": 9
+      "name": "Sandero",
+      "brandId": 9
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "name": "Branco"
+    },
+    {
+      "id": 2,
+      "name": "Preto"
+    },
+    {
+      "id": 3,
+      "name": "Cinza"
+    },
+    {
+      "id": 4,
+      "name": "Vermelho"
+    },
+    {
+      "id": 5,
+      "name": "Vinho"
+    },
+    {
+      "id": 6,
+      "name": "Prata"
+    },
+    {
+      "id": 7,
+      "name": "Laranja"
+    },
+    {
+      "id": 8,
+      "name": "Verde"
     }
   ]
 }
