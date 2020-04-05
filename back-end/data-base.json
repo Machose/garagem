@@ -17,35 +17,35 @@
     {
       "id": 3,
       "board": "QQQ4569",
-      "colorId": 1,
+      "colorId": 7,
       "year": 2006,
       "modelId": 1
     },
     {
       "id": 4,
       "board": "CVB1456",
-      "colorId": 1,
+      "colorId": 6,
       "year": 2018,
       "modelId": 5
     },
     {
       "id": 5,
       "board": "QMO3333",
-      "colorId": 1,
+      "colorId": 4,
       "year": 2016,
       "modelId": 10
     },
     {
       "id": 6,
       "board": "QTM1478",
-      "colorId": 1,
+      "colorId": 8,
       "year": 2014,
       "modelId": 8
     },
     {
       "id": 7,
       "board": "MNJ1346",
-      "colorId": 1,
+      "colorId": 3,
       "year": 2009,
       "modelId": 3
     },
